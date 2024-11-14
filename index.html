@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hello World</title>
+  <link href='/style.css' rel='stylesheet'>
+  <style>
+    body{
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      margin : 10% 20%;
+    }
+
+    .container{
+      display: flex;
+      justify-content: center;
+    }
+
+    .content{
+      width: 40%;
+      display: flex;
+      justify-content: center;
+      
+    }
+    .card{
+      width: 100%;
+      box-shadow: 0 4px 8px 8px rgba(122, 122, 122, 0.2);
+      border-radius: 24px;
+      margin : 0 16px;
+
+    }
+    .card-body{
+      padding: 2px 16px;
+    }
+    .card-footer{
+    color: rgb(0, 136, 255);
+      height: 200px;
+      padding:16px;
+      background-color: #7c0000ef;
+      margin: 20px 10px;
+      border-radius: 8px;
+    }
+
+    .card>h2{
+      padding: 0 16px;
+    }
+
+    input[type="number"]{
+      width: 93%;
+      padding: 10px;
+      margin: 8px 0px;
+      }
+
+    .btn_hitung{
+      border: none;
+      color: white;
+      background-color: #50007e;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
+
+    .btn_hitung:hover{
+      background-color: #040faa;
+      transition: 300ms;
+    }
+
+    @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    .content {
+        width: 130%;
+        margin-bottom: 16px;
+    }
+    .card {
+        margin: 10px 0;
+    }
+    input[type="number"] {
+        width: 90%;
+    }
+    .btn_hitung {
+        font-size: 14px;
+        padding: 8px 16px; 
+    }
+}
+
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+        <div class="content">
+          <div class="card">
+        <h2>Luas Persegi</h2>
+
+        <div class="card-body">
+        <form method="get">
+          <label>Panjang :
+          <input type="number" id="Npanjang">
+        </label>
+          <label>Lebar :
+          <input type="number" id="Nlebar">
+        </label>
+          <button type="button" onclick="hitungluas_persegi()" class="btn_hitung">Hitung!</button>
+        </form><br>
+      </div>
+
+      <div class="card-footer">
+        Luas Persegi: <br><span id="Nluas_persegi"></span>
+      </div>
+      </div>
+      </div>
+
+      <div class="content">
+        <div class="card">
+        <h2>Luas Segitiga</h2>
+
+        <div class="card-body">
+        <form method="get">
+          <label>Alas :
+          <input type="number" id="Nalas">
+        </label>
+          <label>Tinggi :
+          <input type="number" id="Ntinggi">
+        </label>
+          <button type="button" onclick="hitungluas_segitiga()" class="btn_hitung">Hitung!</button>
+        </form><br>
+      </div>
+
+        <div class="card-footer">
+
+        Luas segitiga: <br><span id="Nluas_segitiga"></span>
+      
+        </div>
+      </div>
+    </div>
+
+      
+</div>
+</body>
+</html>
+<script>
+    function hitungluas_persegi(){
+     
+
+      let panjang = Number(document.getElementById("Npanjang").value)
+      let lebar = Number(document.getElementById("Nlebar").value)
+      
+      let lpersegi = panjang * lebar
+      let kpersegi = 2*(panjang + lebar)
+
+      let hsl = "<br>Panjang = "+panjang+"cm<br>Lebar = "+lebar+"cm<br>"
+          hsl += "Hasil Hitung = "+ lpersegi +"cm<sup>2</sup><br>"
+          hsl += "Keliling = "+ kpersegi +"cm <br>"
+      document.getElementById("Nluas_persegi").innerHTML = hsl
+           
+    }
+
+    function hitungluas_segitiga(){
+      let alas = Number(document.getElementById("Nalas").value)
+      let tinggi = Number(document.getElementById("Ntinggi").value)
+      let lsegitiga = "<br>Alas = "+alas+"cm<br>Tinggi = "+tinggi+"cm<br>"
+          lsegitiga += "Hasil Hitung = "+ (alas*tinggi)/2; +"cm<br>"
+      document.getElementById("Nluas_segitiga").innerHTML = lsegitiga
+           
+    }
+</script>
